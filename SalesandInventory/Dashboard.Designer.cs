@@ -35,6 +35,8 @@
             salesBtn = new Button();
             inventoryBtn = new Button();
             panelLogo = new Panel();
+            label3 = new Label();
+            label1 = new Label();
             pictureBox1 = new PictureBox();
             panel3 = new Panel();
             exitBtn = new Button();
@@ -70,10 +72,10 @@
             createSupplier.Dock = DockStyle.Top;
             createSupplier.FlatAppearance.BorderSize = 0;
             createSupplier.FlatStyle = FlatStyle.Flat;
-            createSupplier.Font = new Font("Arial", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            createSupplier.Font = new Font("Arial", 13F);
             createSupplier.Image = Properties.Resources.icons8_add_administrator_30;
             createSupplier.ImageAlign = ContentAlignment.MiddleLeft;
-            createSupplier.Location = new Point(0, 382);
+            createSupplier.Location = new Point(0, 374);
             createSupplier.Name = "createSupplier";
             createSupplier.Padding = new Padding(20, 0, 0, 0);
             createSupplier.Size = new Size(363, 63);
@@ -88,7 +90,7 @@
             logoutBtn.Dock = DockStyle.Bottom;
             logoutBtn.FlatAppearance.BorderSize = 0;
             logoutBtn.FlatStyle = FlatStyle.Flat;
-            logoutBtn.Font = new Font("Arial", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            logoutBtn.Font = new Font("Arial", 13F);
             logoutBtn.Image = Properties.Resources.icons8_logout_30;
             logoutBtn.ImageAlign = ContentAlignment.MiddleLeft;
             logoutBtn.Location = new Point(0, 961);
@@ -106,10 +108,10 @@
             createBtn.Dock = DockStyle.Top;
             createBtn.FlatAppearance.BorderSize = 0;
             createBtn.FlatStyle = FlatStyle.Flat;
-            createBtn.Font = new Font("Arial", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            createBtn.Font = new Font("Arial", 13F);
             createBtn.Image = Properties.Resources.icons8_add_administrator_30;
             createBtn.ImageAlign = ContentAlignment.MiddleLeft;
-            createBtn.Location = new Point(0, 319);
+            createBtn.Location = new Point(0, 311);
             createBtn.Name = "createBtn";
             createBtn.Padding = new Padding(20, 0, 0, 0);
             createBtn.Size = new Size(363, 63);
@@ -125,10 +127,10 @@
             salesBtn.Dock = DockStyle.Top;
             salesBtn.FlatAppearance.BorderSize = 0;
             salesBtn.FlatStyle = FlatStyle.Flat;
-            salesBtn.Font = new Font("Arial", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            salesBtn.Font = new Font("Arial", 13F);
             salesBtn.Image = Properties.Resources.icons8_sales_30;
             salesBtn.ImageAlign = ContentAlignment.MiddleLeft;
-            salesBtn.Location = new Point(0, 256);
+            salesBtn.Location = new Point(0, 248);
             salesBtn.Name = "salesBtn";
             salesBtn.Padding = new Padding(20, 0, 0, 0);
             salesBtn.Size = new Size(363, 63);
@@ -144,10 +146,10 @@
             inventoryBtn.Dock = DockStyle.Top;
             inventoryBtn.FlatAppearance.BorderSize = 0;
             inventoryBtn.FlatStyle = FlatStyle.Flat;
-            inventoryBtn.Font = new Font("Arial", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            inventoryBtn.Font = new Font("Arial", 13F, FontStyle.Regular, GraphicsUnit.Point, 0);
             inventoryBtn.Image = Properties.Resources.icons8_inventory_30;
             inventoryBtn.ImageAlign = ContentAlignment.MiddleLeft;
-            inventoryBtn.Location = new Point(0, 193);
+            inventoryBtn.Location = new Point(0, 185);
             inventoryBtn.Name = "inventoryBtn";
             inventoryBtn.Padding = new Padding(20, 0, 0, 0);
             inventoryBtn.Size = new Size(363, 63);
@@ -162,19 +164,42 @@
             // 
             panelLogo.AutoSize = true;
             panelLogo.BackColor = Color.LightSteelBlue;
+            panelLogo.Controls.Add(label3);
+            panelLogo.Controls.Add(label1);
             panelLogo.Controls.Add(pictureBox1);
             panelLogo.Dock = DockStyle.Top;
             panelLogo.Location = new Point(0, 0);
             panelLogo.Name = "panelLogo";
-            panelLogo.Size = new Size(363, 193);
+            panelLogo.Size = new Size(363, 185);
             panelLogo.TabIndex = 0;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Arial", 10F);
+            label3.Location = new Point(193, 104);
+            label3.Name = "label3";
+            label3.Size = new Size(136, 23);
+            label3.TabIndex = 0;
+            label3.Text = "need for Tech!";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Arial", 10F);
+            label1.Location = new Point(193, 70);
+            label1.Name = "label1";
+            label1.RightToLeft = RightToLeft.Yes;
+            label1.Size = new Size(159, 23);
+            label1.TabIndex = 0;
+            label1.Text = "We got what you";
             // 
             // pictureBox1
             // 
             pictureBox1.Image = Properties.Resources.logo;
-            pictureBox1.Location = new Point(12, 0);
+            pictureBox1.Location = new Point(0, 3);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(181, 190);
+            pictureBox1.Size = new Size(222, 179);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 1;
             pictureBox1.TabStop = false;
@@ -268,6 +293,7 @@
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             panelLogo.ResumeLayout(false);
+            panelLogo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
@@ -293,5 +319,7 @@
         private Label sessionType;
         private Button exitBtn;
         private Button createSupplier;
+        private Label label3;
+        private Label label1;
     }
 }

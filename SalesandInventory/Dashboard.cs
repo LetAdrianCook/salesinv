@@ -1,4 +1,5 @@
-﻿using SalesandInventory.forms;
+﻿
+using Sales_Inv;
 using SalesandInventory.UserControls;
 using System;
 using System.Collections.Generic;
@@ -18,7 +19,7 @@ namespace SalesandInventory
         NavigationButtons navigationButtons;
 
         Color btndDefaultColor = Color.FromKnownColor(KnownColor.LightSteelBlue);
-        Color btndSelectedColor = Color.FromKnownColor(KnownColor.Control);
+        Color btndSelectedColor = Color.FromKnownColor(KnownColor.White);
         public Dashboard()
         {
             InitializeComponent();
@@ -29,7 +30,7 @@ namespace SalesandInventory
         private void InitializeNavigationControl()
         {
             List<UserControl> userControls = new List<UserControl>()
-            { new Inventory(), new Sales(), new CreateUserWindow() };
+            { new InventoryRegister(), new UserControl2(), new CreateUserWindow() };
 
             navigationControl = new NavigationControl(userControls, dashPanel);
             navigationControl.Display(0);
@@ -42,7 +43,7 @@ namespace SalesandInventory
             { inventoryBtn, salesBtn, createBtn};
 
             navigationButtons = new NavigationButtons(buttons, btndDefaultColor, btndSelectedColor);
-            // navigationButtons.Highlight(inventoryBtn);
+            navigationButtons.Highlight(inventoryBtn);
         }
 
 

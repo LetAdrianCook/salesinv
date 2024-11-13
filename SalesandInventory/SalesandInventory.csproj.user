@@ -13,6 +13,15 @@
     <Compile Update="UserControls\Inventory.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="UserControls\InventoryRegister.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="UserControls\InventoryUpdate.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="UserControls\Posales.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="UserControls\Sales.cs">
       <SubType>UserControl</SubType>
     </Compile>

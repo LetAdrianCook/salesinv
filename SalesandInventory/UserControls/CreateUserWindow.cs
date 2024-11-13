@@ -33,11 +33,6 @@ namespace SalesandInventory.UserControls
 
         private void createUserbtn_Click(object sender, EventArgs e)
         {
-            DateTime selectedDate = birthDate.Value;
-            string formattedDate = selectedDate.ToString("yyyy-MM-dd");
-
-
-
 
             string userType = string.Empty;
 
@@ -50,33 +45,16 @@ namespace SalesandInventory.UserControls
                 userType = "Inventory";
             }
 
-            string gender = string.Empty;
-
-            if (radioMale.Checked)
-            {
-                gender = "Male";
-            }
-            else if (radioFemale.Checked)
-            {
-                gender = "Female";
-            }
-
-
             mysqlConnection.Open();
-            MySqlCommand createUser = new MySqlCommand("INSERT INTO users (userName, userPass, userType, firstName, middleName, lastName, birthDate, gender, dateCreated) " +
-                "VALUES (@userName, @userPass, @userType, @firstName, @middleName, @lastName, @birthDate, @gender, @dateCreated)", mysqlConnection);
-
+            MySqlCommand createUser = new MySqlCommand("INSERT INTO users (userName, userType, firstName, middleName, lastName, dateCreated) " +
+                "VALUES (@userName, @userType, @firstName, @middleName, @lastName , @dateCreated)", mysqlConnection);
 
             createUser.Parameters.AddWithValue("@userName", creUsername.Text);
-            createUser.Parameters.AddWithValue("@userPass", crePassword.Text);
             createUser.Parameters.AddWithValue("@userType", userType);
             createUser.Parameters.AddWithValue("@firstName", creFirstname.Text);
             createUser.Parameters.AddWithValue("@middleName", creMidname.Text);
             createUser.Parameters.AddWithValue("@lastName", creLastname.Text);
-            createUser.Parameters.AddWithValue("@birthDate", formattedDate);
-            createUser.Parameters.AddWithValue("@gender", gender);
             createUser.Parameters.AddWithValue("@dateCreated", DateTime.Now); // Use DateTime.Now for current date and time
-
 
             createUser.ExecuteNonQuery();
 
@@ -86,11 +64,10 @@ namespace SalesandInventory.UserControls
             creFirstname.Clear();
             creMidname.Clear();
             creLastname.Clear();
-            radioMale.Checked = false;
-            radioFemale.Checked = false;
+
             salesType.Checked = false;
             invType.Checked = false;
-            birthDate.Value = DateTime.Now;
+
             BindData();
             mysqlConnection.Close();
 
@@ -100,7 +77,7 @@ namespace SalesandInventory.UserControls
         {
             try
             {
-                MySqlCommand view = new MySqlCommand("select * from users", mysqlConnection);
+                MySqlCommand view = new MySqlCommand("select userName, userType, firstName, middleName, lastName, dateCreated from users where userType = 'Sales' or 'Inventory'", mysqlConnection);
                 MySqlDataAdapter userTable = new MySqlDataAdapter(view);
                 DataTable dt = new DataTable();
                 userTable.Fill(dt);
@@ -108,13 +85,28 @@ namespace SalesandInventory.UserControls
             }
             catch (Exception ex)
             {
-               // MessageBox.Show("Error retrieving data: " + ex.Message);
+                // MessageBox.Show("Error retrieving data: " + ex.Message);
             }
         }
 
         private void CreateUserWindow_Load(object sender, EventArgs e)
         {
             BindData();
+        }
+
+        private void groupBox8_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void userGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void invType_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
 
